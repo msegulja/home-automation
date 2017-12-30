@@ -1,0 +1,304 @@
+homeassistant:
+  name: House Segulja
+  latitude: 29.8176
+  longitude: -95.5208
+  elevation: 25
+  unit_system: imperial
+  time_zone: America/Chicago
+  temperature_unit: F
+  customize: !include customize.yaml
+
+frontend:
+cloud:
+config:
+
+mqtt:
+  broker: househa.segulja.com
+  port: 1883
+  client_id: home-assistant-1
+  discovery: true
+  discovery_prefix: homeassistant
+
+http:
+  api_password: f3rT3455
+  ssl_certificate: /ssl/fullchain.pem
+  ssl_key: /ssl/privkey.pem
+  server_port: 443
+  base_url: segulja.duckdns.org:443
+
+# Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+updater:
+  # Optional, allows Home Assistant developers to focus on popular components.
+  # include_used_components: true
+
+discovery:
+conversation:
+history:
+logbook:
+sun:
+map:
+ios:
+
+## SENSORS ##
+sensor:
+  - platform: darksky
+    api_key: afa34bc609b9663a088f2f877096ca2b
+    monitored_conditions:
+      - temperature
+      - humidity
+      - precip_probability
+      - precip_intensity
+      - wind_speed
+      - pressure
+      - wind_bearing
+      - apparent_temperature
+      - icon
+      - minutely_summary
+      - hourly_summary
+      - daily_summary
+      - nearest_storm_distance
+      - nearest_storm_bearing
+      - visibility
+
+  - platform: plex
+    host: baggins.segulja.com
+    name: Living Room Plex
+    username: michael@segulja.com
+    password: v@NNifer1
+
+  - platform: template
+    sensors:
+      living_room:
+        value_template: '{{ states.remote.living_room.attributes.current_activity }}'
+
+## DEVICE TRACKERS ##
+device_tracker:
+  - platform: owntracks
+    max_gps_accuracy: 200
+
+  - platform: nmap_tracker
+    hosts:
+      # Alex's Note 8
+      - 172.16.20.66
+    home_interval: 5
+
+### MEDIA PLAYERS ###
+media_player:
+  - platform: plex
+    show_all_controls: true
+    scan_interval: 5
+
+  - platform: webostv
+    name: Living Room TV
+    host: 172.16.20.43
+    file: webostv_lvgnrm.conf
+    timeout: 5
+    turn_on_action:
+      service: persistent_notification.create
+      data:
+        message: "Turn on action"
+    customize:
+      sources:
+        - hdmi1
+        - hdmi1
+
+## INPUT BOOLEANS
+input_select:
+  house_mode:
+    name: House Mode
+    options:
+    - Morning
+    - Day
+    - Evening
+    - Night
+    - Bedtime
+  presence:
+    name: Presence
+    options:
+    - Home
+    - Away
+  media_type:
+    name: Media Type
+    options:
+    - None
+    - Movie
+    - TVShow
+    - Music
+
+input_boolean:
+  plex_movie:
+    name: Watch a movie on Plex
+    initial: off
+    icon: mdi:movie
+
+### NOTIFICATIONS ###
+notify:
+
+### REMOTES ###
+remote:
+  - platform: harmony
+    name: Living Room
+    activity: Watch DirectTV
+
+### SWITCHES ###
+switch:
+  - platform: template
+    switches:
+      tv:
+        value_template: "{% if is_state('remote.living_room', 'on') %}on{% else %}off{% endif %}"
+        turn_on:
+          service: remote.turn_on
+          entity_id: remote.living_room
+        turn_off:
+          service: remote.turn_off
+          entity_id: remote.living_room
+
+### SCENES ###
+scene:
+  - name: livingrm_lighting_on
+    entities:
+      light.living_room_lamp_l:
+        state: on
+        transition: 2
+        brightness_pct: 100
+      light.living_room_lamp_r:
+        state: on
+        transition: 5
+        brightness_pct: 100
+  - name: livingrm_lighting_off
+    entities:
+      light.living_room_lamp_l:
+        state: off
+        transition: 30
+      light.living_room_lamp_r:
+        state: off
+  - name: bedtime
+    entities:
+      input_select.house_mode:
+        option: Bedtime
+      group.all_lights:
+        state: off
+      group.all_switches:
+        state: off
+      group.all_remotes:
+        state: off
+      media_player.musicoffice:
+        state: off
+      media_player.musicmbath:
+        state: off
+  - name: wakeup
+    entities:
+      light.living_room_lamp_l:
+        state: on
+        brightness_pct: 30
+      light.office_light_level:
+        state: on
+        brightness_pct: 50
+      media_player.musicoffice:
+        state: on
+
+### SCRIPTS ###
+script:
+  start_plex_movie:
+    sequence:
+      - service: remote.turn_on
+        entity_id: remote.living_room
+        data:
+          activity: "Media Player"
+      - service: scene.turn_on
+        entity_id: scene.livingrm_lighting_on
+      - service: switch.turn_off
+        entity_id: switch.entry_way_lamp_switch
+      - service: media_player.turn_off
+        entity_id: media_player.musicoffice
+  stop_plex_movie:
+    sequence:
+      - service: scene.turn_off
+        entity_id: scene.livingrm_lighting_off
+      - service: switch.turn_on
+        entity_id: switch.entry_way_lamp_switch
+
+# Text to speech
+tts:
+  - platform: google
+
+## ZONES ##
+zone:
+  - name: WORK
+    latitude: 29.755621
+    longitude: -95.367377
+    radius: 250
+    icon: mdi:worker
+  
+  - name: HOME
+    latitude: 30.084042
+    longitude: -95.514954
+    radius: 100
+    icon: mdi:home
+
+  - name: WORK
+    latitude: 29.947084
+    longitude: -95.517403
+    radius: 250
+    icon: mdi:church
+
+  - name: SCHOOL
+    latitude: 30.096894
+    longitude: -95.517889
+    radius: 250
+    icon: mdi:school
+
+  - name: Farm Segulja
+    latitude: 31.429200
+    longitude: -95.379784
+    radius: 350
+    icon: mdi:home-variant
+
+  - name: Kylie's House
+    latitude: 30.02210
+    longitude: -95.50168
+    radius: 100
+    icon: mdi:home-variant
+
+  - name: Kroger's
+    latitude: 30.07345
+    longitude: -95.50908
+    radius: 250
+    icon: mdi:food-apple
+
+  - name: The Ferstlers
+    latitude: 30.284213
+    longitude: -97.941852
+    radius: 100
+    icon: mdi:home-map-marker
+  
+  - name: Momma Chris & PawPaw
+    latitude: 29.879973
+    longitude: -95.476375
+    radius: 100
+    icon: mdi:home-map-marker
+
+  - name: Fairfield Outlets
+    latitude: 29.997120
+    longitude: -95.756750
+    radius: 500
+    icon: mdi:shopping
+
+  - name: Aimee's House
+    latitude: 30.049417
+    longitude: -95.457141
+    radius: 100
+    icon: mdi:home-map-marker
+
+### Z-WAVE ###
+zwave:
+  usb_path: /dev/ttyUSB0
+
+## INCLUDES ##
+group: !include groups.yaml
+automation: !include automations.yaml
+# script: !include scripts.yaml

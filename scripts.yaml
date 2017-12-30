@@ -1,0 +1,6 @@
+'1509561590107':
+  alias: Plex Movie
+  sequence:
+  - data:
+      entity_id: remote.living_room
+    service: remote.turn_on

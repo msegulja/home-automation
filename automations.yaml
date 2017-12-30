@@ -1,0 +1,328 @@
+- action:
+  - alias: Set time of day to evening
+    data:
+      entity_id: input_select.house_mode
+      option: Evening
+    service: input_select.select_option
+  alias: 'Time of Day :: Evening'
+  condition: []
+  id: '1507065803143'
+  trigger:
+  - at: '17:00:00'
+    platform: time
+- action:
+  - alias: Set time of day to night
+    data:
+      entity_id: input_select.house_mode
+      option: Night
+    service: input_select.select_option
+  alias: 'Time of Day :: Night'
+  condition: []
+  id: '1507071843278'
+  trigger:
+  - at: '21:00:00'
+    platform: time
+- action:
+  - alias: Set time of day to morning
+    data:
+      entity_id: input_select.house_mode
+      option: Morning
+    service: input_select.select_option
+  alias: 'Time of Day :: Morning'
+  condition: []
+  id: '1507072100005'
+  trigger:
+  - at: 06:00:00
+    platform: time
+- action:
+  - alias: Set time of day to day
+    data:
+      entity_id: input_select.house_mode
+      option: Day
+    service: input_select.select_option
+  alias: 'Time of Day :: Day'
+  condition: []
+  id: '1507072171854'
+  trigger:
+  - at: '12:00:00'
+    platform: time
+- action:
+  - alias: House is empty
+    data:
+      entity_id: input_select.presence
+      option: Away
+    service: input_select.select_option
+  - alias: Turn off all office lights
+    data:
+      entity_id: group.office
+    service: light.turn_off
+  - alias: Turn off all living room lights
+    data:
+      entity_id: group.living_room
+    service: light.turn_off
+  - data:
+      entity_id: media_player.musicoffice
+    service: media_player.turn_off
+  - data:
+      entity_id: media_player.musicmbath
+    service: media_player.turn_off
+  alias: 'House Mode :: Unoccupied'
+  condition: []
+  id: '1507090642377'
+  trigger:
+  - entity_id: group.family
+    from: home
+    platform: state
+    to: not_home
+- action:
+  - alias: House is occupied
+    data:
+      entity_id: input_select.presence
+      option: Home
+    service: input_select.select_option
+  alias: 'House Mode :: Occupied'
+  condition: []
+  id: '1507342353590'
+  trigger:
+  - entity_id: group.family
+    from: not_home
+    platform: state
+    to: home
+- action:
+  - alias: Stop office music player
+    data:
+      entity_id: media_player.musicoffice
+    service: media_player.media_stop
+  - alias: notify message
+    data:
+      message: Michael left home
+    service: notify.ios_phonemichael
+  alias: 'Leave Home :: Michael'
+  condition: []
+  id: '1507860971051'
+  trigger:
+  - entity_id: device_tracker.phone_michael
+    from: home
+    platform: state
+    to: not_home
+- action:
+  - alias: Turn on office lamp from motion
+    data:
+      entity_id: switch.office_lamp_switch
+    service: switch.turn_on
+  alias: 'Lighting :: Office Lamp -- ON by MOTION'
+  condition:
+  - below: '50'
+    condition: numeric_state
+    entity_id: sensor.office_motion_luminance
+  id: '1508721166071'
+  trigger:
+  - entity_id: binary_sensor.office_motion_sensor
+    from: 'off'
+    platform: state
+    to: 'on'
+- action:
+  - alias: Turn off the office lamp after no motion
+    data:
+      entity_id: switch.office_lamp_switch
+    service: switch.turn_off
+  alias: 'Lighting :: Office Lamp -- OFF by MOTION'
+  condition: []
+  id: '1508783178946'
+  trigger:
+  - entity_id: binary_sensor.office_motion_sensor
+    from: 'on'
+    platform: state
+    to: 'off'
+    for:
+      minutes: 10
+- action:
+  - data:
+      entity_id: light.living_room_lamp_l_level
+    service: light.turn_off
+  alias: 'Lighting :: Living Room Lamp -- OFF by MOTION at bedtime'
+  condition:
+  - condition: state
+    entity_id: input_select.house_mode
+    state: Bedtime
+  id: '0000000000002'
+  trigger:
+  - entity_id: binary_sensor.living_room_motion_sensor
+    for:
+      minutes: 5
+    from: 'on'
+    platform: state
+    to: 'off'
+- action:
+  - alias: Turn on entry way lamp at sunset
+    data:
+      entity_id: switch.entry_way_lamp_switch
+    service: switch.turn_on
+  - alias: Turn on porch light at sunset
+    data:
+      brightness_pct: 40
+      entity_id: light.front_porch_light_level
+    service: light.turn_on
+  - alias: Turn on Christmas Lights at sunset
+    data:
+      entity_id: switch.office_scentsy_switch
+    service: switch.turn_on
+  alias: 'Lighting :: ON at SUNSET'
+  condition: []
+  id: '1508784938289'
+  trigger:
+  - event: sunset
+    platform: sun
+- action:
+  - data:
+      message: Morgann is home
+    service: notify.ios_phonemichael
+  alias: 'Arrive Home :: Morgann'
+  condition: []
+  id: '1509134947164'
+  trigger:
+  - entity_id: device_tracker.user_morgann
+    from: not_home
+    platform: state
+    to: home
+- action:
+  - data:
+      message: Jennifer is home
+    service: notify.ios_phonemichael
+  alias: 'Arrive Home :: Jennifer'
+  condition: []
+  id: '1509200897081'
+  trigger:
+  - entity_id: device_tracker.user_jennifer
+    from: not_home
+    platform: state
+    to: home
+- action:
+  - data:
+      message: Ian is home
+    service: notify.ios_phonemichael
+  alias: 'Arrive Home :: Ian'
+  condition: []
+  id: '1509200966051'
+  trigger:
+  - entity_id: device_tracker.user_ian
+    from: not_home
+    platform: state
+    to: home
+- action:
+  - alias: Send alert at bedtime if the garage door is open
+    data:
+      message: The garage door is OPEN
+    service: notify.ios_phonemichael
+  alias: 'House Mode :: Bedtime'
+  condition:
+  - condition: state
+    entity_id: binary_sensor.garage_overhead_door_sensor
+    state: 'on'
+  id: '1509992267213'
+  trigger:
+  - entity_id: input_select.house_mode
+    platform: state
+    to: Bedtime
+- action:
+  - alias: notify message
+    data:
+      message: Jennifer left home
+    service: notify.ios_phonemichael
+  alias: 'Leave Home :: Jennifer'
+  condition: []
+  id: '1510705425022'
+  trigger:
+  - entity_id: device_tracker.user_jennifer
+    from: home
+    platform: state
+    to: not_home
+- action:
+  - data:
+      message: Michael is home
+    service: notify.ios_phonemichael
+  - data:
+      entity_id: media_player.musicoffice
+    service: media_player.turn_on
+  - data:
+      entity_id: media_player.musicoffice
+      volume_level: 0.4
+    service: media_player.volume_set
+  - data:
+      entity_id: media_player.musicoffice
+    service: media_player.media_play
+  alias: 'Arrive Home :: Michael'
+  condition: []
+  id: '1510887293480'
+  trigger:
+  - entity_id: device_tracker.phone_michael
+    from: not_home
+    platform: state
+    to: home
+- action:
+  - data:
+      brightness_pct: 15
+      entity_id: light.living_room_lamp_l_level
+    service: light.turn_on
+  alias: 'Lighting :: Living Room Lamps -- ON by MOTION at bedtime'
+  condition:
+  - condition: state
+    entity_id: input_select.house_mode
+    state: Bedtime
+  id: '1511418018137'
+  trigger:
+  - entity_id: binary_sensor.living_room_motion_sensor
+    platform: state
+    to: 'on'
+- action:
+  - data:
+      brightness_pct: 15
+      entity_id: light.living_room_lamp_l_level
+    service: light.turn_on
+  alias: 'Lighting :: Living Room Lamps -- ON by plex movie PAUSED'
+  id: '4918374019253'
+  trigger:
+  - entity_id: media_player.medialvngrm
+    platform: state
+    to: paused
+  condition:
+  - condition: state
+    entity_id: input_boolean.plex_movie
+    state: 'on'
+- action:
+  - data:
+      entity_id: group.living_room_lights
+    service: light.turn_off
+  alias: 'Lighting :: Living Room Lamps -- OFF by plex movie PLAY'
+  id: '0000000000001'
+  trigger:
+  - entity_id: media_player.medialvngrm
+    platform: state
+    to: play
+  condition:
+  - condition: state
+    entity_id: input_boolean.plex_movie
+    state: 'on'
+- action:
+  - data:
+      message: Morgann is at Kylie's House
+    service: notify.ios_phonemichael
+  alias: 'Arrive :: Morgann at Kylie''s House'
+  condition: []
+  id: '1513894067496'
+  trigger:
+  - entity_id: device_tracker.user_morgann
+    platform: state
+    to: Kylie's House
+- action:
+  - data:
+      entity_id: scene.start_plex_movie
+    service: scene.turn_on
+  alias: 'Media :: Start a movie on Plex'
+  condition: []
+  id: '1514606214984'
+  trigger:
+  - entity_id: input_boolean.plex_movie
+    from: 'off'
+    platform: state
+    to: 'on'

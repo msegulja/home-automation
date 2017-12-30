@@ -1,0 +1,98 @@
+phone_michael:
+  hide_if_away: false
+  icon:
+  mac:
+  name: michael
+  picture: /local/sgi_o2.jpg
+  track: true
+  vendor: Apple, Inc.
+
+nmap_michael:
+  hide_if_away: false
+  icon:
+  mac: 20:EE:28:5D:F0:93
+  name: michael
+  picture:
+  track: false
+  vendor: Apple, Inc.
+
+nmap_jennifer:
+  hide_if_away: false
+  icon:
+  mac: 40:CB:C0:49:05:51
+  name: jennifer
+  picture:
+  track: false
+  vendor: Apple, Inc.
+
+user_jennifer:
+  hide_if_away: false
+  icon:
+  mac:
+  name: jennifer
+  picture: /local/jennifer_headshot.jpg
+  track: true
+  vendor:
+
+nmap_alex:
+  hide_if_away: false
+  icon:
+  mac: B8:D7:AF:7B:10:15
+  name: alex
+  picture: /local/alex_headshot.jpg
+  track: true
+  vendor: Samsung
+
+nmap_morgann:
+  hide_if_away: false
+  icon:
+  mac: B0:19:C6:AD:D3:3E
+  name: morgann
+  picture: /local/morgann_headshot.jpg
+  track: false
+  vendor:
+
+user_morgann:
+  hide_if_away: false
+  icon:
+  mac:
+  name: morgann
+  picture: /local/morgann_headshot.jpg
+  track: true
+  vendor: Apple, Inc.
+
+nmap_ian:
+  hide_if_away: false
+  icon:
+  mac: 40:CB:C0:21:DE:36
+  name: ian
+  picture: /local/ian_headshot.jpg
+  track: false
+  vendor: Apple, Inc.
+
+user_ian:
+  hide_if_away: false
+  icon:
+  mac:
+  name: ian
+  picture: /local/ian_headshot.jpg
+  track: true
+  vendor:
+
+b8bbafe5b973:
+  hide_if_away: false
+  icon:
+  mac: B8:BB:AF:E5:B9:73
+  name: b8bbafe5b973
+  picture:
+  track: false
+  vendor: Samsung Electronics Co.,Ltd
+
+6c88149fd838:
+  hide_if_away: false
+  icon:
+  mac: 6C:88:14:9F:D8:38
+  name: 6c88149fd838
+  picture:
+  track: false
+  vendor: unknown

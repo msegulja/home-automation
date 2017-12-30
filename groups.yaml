@@ -1,0 +1,89 @@
+## VIEWS
+entry_way_view:
+  view: yes
+  name: Entry Way
+  entities:
+    - group.entry_way
+living_room_view:
+  view: yes
+  name: Living Room
+  entities:
+    - group.living_room_lights
+    - group.living_room_motion
+    - remote.living_room_tv
+    - media_player.living_room_tv
+    - input_boolean.plex_movie
+    - switch.tv
+    - media_player.medialvngrm
+master_bedroom_view:
+  view: yes
+  name: Master Bedroom
+  entities:
+    - group.master_bedroom
+    - media_player.master_bedroom_tv
+office_view:
+  view: yes
+  name: Office
+  entities:
+    - sensor.office_motion_temperature
+    - binary_sensor.office_motion_sensor
+    - sensor.office_motion_luminance
+    - sensor.office_motion_relative_humidity
+    - group.office
+    - media_player.aragorn
+outside_view:
+  view: yes
+  name: Outside
+  entities:
+    - group.outside
+family_view:
+  view: yes
+  name: Family
+  entities:
+    - group.family
+
+## GROUPS
+entry_way:
+  name: Entry Way
+  entities:
+    - switch.entry_way_lamp_switch
+    - lock.front_door_lock_locked
+living_room_lights:
+  name: Living Room Lighting
+  entities:
+    - light.living_room_lamp_l_level
+    - light.living_room_lamp_r_level
+living_room_motion:
+  name: Living Room Motion Sensors
+  entities:
+    - binary_sensor.living_room_motion_sensor
+    - sensor.living_room_motion_alarm_level
+    - sensor.living_room_motion_alarm_type
+    - sensor.living_room_motion_burglar
+    - sensor.living_room_motion_sourcenodeid
+master_bedroom:
+  name: Master Bedroom
+  entities:
+    - remote.bedroom_apple_tv
+office:
+  name: Office
+  entities:
+    - light.office_light_level
+    - switch.office_lamp_switch
+    - switch.office_scentsy_switch
+    - media_player.aragorn
+    - media_player.musicoffice
+outside:
+  name: Outside
+  entities:
+    - light.front_porch_light_level
+    - switch.back_porch_light_switch
+family:
+  name: Family
+  entities:
+    - device_tracker.user_ian
+    - device_tracker.nmap_alex
+    - device_tracker.user_morgann
+    - device_tracker.user_jennifer
+    - device_tracker.phone_michael
+    - input_select.presence

@@ -1,0 +1,8 @@
+*.db
+.uuid
+*sql*
+home-assistant_v2.db-wal
+home-assistant.*
+OZW*
+*.xml
+.cloud
