@@ -316,7 +316,7 @@
     to: Kylie's House
 - action:
   - data:
-      entity_id: scene.start_plex_movie
+      entity_id: script.start_plex_movie
     service: scene.turn_on
   alias: 'Media :: Start a movie on Plex'
   condition: []
@@ -326,3 +326,39 @@
     from: 'off'
     platform: state
     to: 'on'
+- action:
+  - data:
+      message: Morgann left home
+    service: notify.ios_phonemichael
+  alias: 'Leave Home :: Morgann'
+  condition: []
+  id: '1514654867122'
+  trigger:
+  - entity_id: device_tracker.user_morgann
+    from: home
+    platform: state
+    to: not_home
+- action:
+  - data:
+      message: Ian left home
+    service: notify.ios_phonemichael
+  alias: 'Leave Home :: Ian'
+  condition: []
+  id: '1514654973877'
+  trigger:
+  - entity_id: device_tracker.user_ian
+    from: home
+    platform: state
+    to: not_home
+- action:
+  - data:
+      message: Alex left home
+    service: notify.ios_phonemichael
+  alias: 'Leave Home :: Alex'
+  condition: []
+  id: '1514655029897'
+  trigger:
+  - entity_id: device_tracker.nmap_alex
+    from: home
+    platform: state
+    to: not_home
