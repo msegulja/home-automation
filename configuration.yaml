@@ -161,20 +161,19 @@ switch:
 scene:
   - name: livingrm_lighting_on
     entities:
-      light.living_room_lamp_l:
+      light.living_room_lamp_l_level:
         state: on
-        transition: 2
+        transition: 30
         brightness_pct: 100
-      light.living_room_lamp_r:
+      light.living_room_lamp_r_level:
         state: on
-        transition: 5
+        transition: 60
         brightness_pct: 100
   - name: livingrm_lighting_off
     entities:
-      light.living_room_lamp_l:
+      light.living_room_lamp_l_level:
         state: off
-        transition: 30
-      light.living_room_lamp_r:
+      light.living_room_lamp_r_level:
         state: off
   - name: bedtime
     entities:
@@ -215,6 +214,8 @@ script:
         entity_id: switch.entry_way_lamp_switch
       - service: media_player.turn_off
         entity_id: media_player.musicoffice
+      - service: media_player.turn_off
+        entity_id: media_player.musicmbath
   stop_plex_movie:
     sequence:
       - service: scene.turn_off
