@@ -11,6 +11,7 @@ living_room_view:
     - group.living_room_lights
     - group.living_room_motion
     - remote.living_room_tv
+    - group.living_room_sensors
     - media_player.living_room_tv
     - input_boolean.plex_movie
     - switch.tv
@@ -61,6 +62,11 @@ living_room_motion:
     - sensor.living_room_motion_alarm_type
     - sensor.living_room_motion_burglar
     - sensor.living_room_motion_sourcenodeid
+living_room_sensors:
+  name: Living Room Sensors
+  entities:
+    - sensor.living_room
+    - sensor.living_room_plex
 master_bedroom:
   name: Master Bedroom
   entities:

@@ -97,14 +97,16 @@ media_player:
     host: 172.16.20.43
     file: webostv_lvgnrm.conf
     timeout: 5
+    icon: mdi:television
     turn_on_action:
       service: persistent_notification.create
       data:
         message: "Turn on action"
     customize:
       sources:
-        - hdmi1
-        - hdmi1
+        - DVD Player
+        - DirecTV
+        - Streaming Box
 
 ## INPUT BOOLEANS
 input_select:
@@ -142,7 +144,7 @@ notify:
 remote:
   - platform: harmony
     name: Living Room
-    activity: Watch DirectTV
+    activity: Watch DirecTV
 
 ### SWITCHES ###
 switch:
