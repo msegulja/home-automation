@@ -43,6 +43,17 @@ sun:
 map:
 ios:
 
+### CAMERAS ###
+camera musicoffice:
+  - platform: generic
+    name: Music - Office
+    still_image_url: http://musicserver:9000/music/current/cover.jpg?player=music-office
+
+camera musicmbath:
+  - platform: generic
+    name: Music - Master Bathroom
+    still_image_url: http://musicserver:9000/music/current/cover.jpg?player=music-mbath
+
 ## SENSORS ##
 sensor:
   - platform: darksky

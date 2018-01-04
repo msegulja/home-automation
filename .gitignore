@@ -1,7 +1,7 @@
 *.db
 .uuid
 *sql*
-home-assistant_v2.db-wal
+home-assistant_v2*
 home-assistant.*
 OZW*
 *.xml
