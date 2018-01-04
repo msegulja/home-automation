@@ -10,7 +10,7 @@ living_room_view:
   entities:
     - group.living_room_lights
     - group.living_room_motion
-    - remote.living_room_tv
+    - media_player.tv__living_room
     - group.living_room_sensors
     - media_player.living_room_tv
     - input_boolean.plex_movie
@@ -22,6 +22,11 @@ master_bedroom_view:
   entities:
     - group.master_bedroom
     - media_player.master_bedroom_tv
+media_room_view:
+  view: yes
+  name: Media Room
+  entities:
+    - media_player.tv__media_room
 office_view:
   view: yes
   name: Office

@@ -103,21 +103,38 @@ media_player:
     show_all_controls: true
     scan_interval: 5
 
+media_player tv-mediaroom:
   - platform: webostv
-    name: Living Room TV
-    host: 172.16.20.43
-    file: webostv_lvgnrm.conf
+    name: TV - Media Room
+    host: 172.16.20.51
+    filename: webostv_mediaroom.conf
     timeout: 5
-    icon: mdi:television
     turn_on_action:
       service: persistent_notification.create
       data:
         message: "Turn on action"
     customize:
       sources:
-        - DVD Player
-        - DirecTV
-        - Streaming Box
+        - HDMI1
+        - HDMI2
+        - HDMI3
+        - HDMI4
+        - Netflix
+        - Plex
+
+media_player tv-livingroom:
+  - platform: webostv
+    name: TV - Living Room
+    host: 172.16.20.43
+    filename: webostv_livingroom.conf
+    timeout: 5
+    turn_on_action:
+      service: persistent_notification.create
+      data:
+        message: "Turn on action"
+    customize:
+      sources:
+        - hdmi1
 
 ## INPUT BOOLEANS
 input_select:
