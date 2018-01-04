@@ -43,10 +43,16 @@ sun:
 map:
 ios:
 
-camera:
+### CAMERAS ###
+camera musicoffice:
   - platform: generic
-    # still_image_url: http://musicserver:9000/music/03db988b/cover.jpg
-    still_image_url: https://segulja.duckdns.org/api/media_player_proxy/media_player.musicoffice?{{ states.media_player.musicoffice.attributes.token }}
+    name: Music - Office
+    still_image_url: http://musicserver:9000/music/current/cover.jpg?player=music-office
+
+camera musicmbath:
+  - platform: generic
+    name: Music - Master Bathroom
+    still_image_url: http://musicserver:9000/music/current/cover.jpg?player=music-mbath
 
 ## SENSORS ##
 sensor:

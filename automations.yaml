@@ -177,7 +177,7 @@
   - data:
       message: Morgann is home
     service: notify.ios_phonemichael
-  alias: 'Arrive Home :: Morgann'
+  alias: 'Arrive :: Home - Morgann'
   condition: []
   id: '1509134947164'
   trigger:
@@ -189,7 +189,7 @@
   - data:
       message: Jennifer is home
     service: notify.ios_phonemichael
-  alias: 'Arrive Home :: Jennifer'
+  alias: 'Arrive :: Home - Jennifer'
   condition: []
   id: '1509200897081'
   trigger:
@@ -201,7 +201,7 @@
   - data:
       message: Ian is home
     service: notify.ios_phonemichael
-  alias: 'Arrive Home :: Ian'
+  alias: 'Arrive :: Home - Ian'
   condition: []
   id: '1509200966051'
   trigger:
@@ -251,7 +251,7 @@
   - data:
       entity_id: media_player.musicoffice
     service: media_player.media_play
-  alias: 'Arrive Home :: Michael'
+  alias: 'Arrive :: Home - Michael'
   condition: []
   id: '1510887293480'
   trigger:
@@ -307,13 +307,13 @@
   - data:
       message: Morgann is at Kylie's House
     service: notify.ios_phonemichael
-  alias: 'Arrive :: Morgann at Kylie''s House'
+  alias: 'Arrive :: Kylie''s House - Morgann'
   condition: []
   id: '1513894067496'
   trigger:
   - entity_id: device_tracker.user_morgann
     platform: state
-    to: Kylie's House
+    to: Kylie\'s House
 - action:
   - data:
       entity_id: script.start_plex_movie
@@ -362,3 +362,15 @@
     from: home
     platform: state
     to: not_home
+- action:
+  - data:
+      message: Morgann left Kylie's House
+    service: notify.ios_phonemichael
+  alias: 'Leave :: Kylie''s House - Morgann'
+  condition: []
+  id: '1515100117173'
+  trigger:
+  - entity_id: device_tracker.user_morgann
+    from: Kylie\'s House
+    platform: state
+    to: Away
