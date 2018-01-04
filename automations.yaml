@@ -317,7 +317,7 @@
 - action:
   - data:
       entity_id: script.start_plex_movie
-    service: scene.turn_on
+    service: script.turn_on
   alias: 'Media :: Start a movie on Plex'
   condition: []
   id: '1514606214984'
