@@ -15,3 +15,5 @@ switch.entry_way_lamp_switch:
 light.living_room_lamp_l_level:
   friendly_name: Living Room Lamp L
   new_entity_id: light.living_room_lamp_l
+media_player.unnamed_device:
+  friendly_name: Plex - Media Room

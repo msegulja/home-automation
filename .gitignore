@@ -6,4 +6,4 @@ home-assistant.*
 OZW*
 *.xml
 .cloud
-.ios.conf
+*ios.conf*
