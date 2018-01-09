@@ -60,12 +60,6 @@
     data:
       entity_id: group.living_room
     service: light.turn_off
-  - data:
-      entity_id: media_player.musicoffice
-    service: media_player.turn_off
-  - data:
-      entity_id: media_player.musicmbath
-    service: media_player.turn_off
   alias: 'House Mode :: Unoccupied'
   condition: []
   id: '1507090642377'
@@ -160,13 +154,9 @@
     service: switch.turn_on
   - alias: Turn on porch light at sunset
     data:
-      brightness_pct: 40
+      brightness_pct: 100
       entity_id: light.front_porch_light_level
     service: light.turn_on
-  - alias: Turn on Christmas Lights at sunset
-    data:
-      entity_id: switch.office_scentsy_switch
-    service: switch.turn_on
   alias: 'Lighting :: ON at SUNSET'
   condition: []
   id: '1508784938289'
@@ -372,5 +362,17 @@
   trigger:
   - entity_id: device_tracker.user_morgann
     from: Kylie\'s House
+    platform: state
+    to: Away
+- action:
+  - data:
+      message: Morgann left school
+    service: notify.ios_phonemichael
+  alias: 'Leave :: School - Morgann'
+  condition: []
+  id: '1515529480559'
+  trigger:
+  - entity_id: device_tracker.user_morgann
+    from: SCHOOL
     platform: state
     to: Away

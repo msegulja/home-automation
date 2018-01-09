@@ -47,12 +47,12 @@ ios:
 camera musicoffice:
   - platform: generic
     name: Music - Office
-    still_image_url: http://musicserver:9000/music/current/cover.jpg?player=music-office
+    still_image_url: http://172.16.20.4:9000/music/current/cover.jpg?player=music-office
 
 camera musicmbath:
   - platform: generic
     name: Music - Master Bathroom
-    still_image_url: http://musicserver:9000/music/current/cover.jpg?player=music-mbath
+    still_image_url: http://172.16.20.4:9000/music/current/cover.jpg?player=music-mbath
 
 ## SENSORS ##
 sensor:
@@ -76,15 +76,15 @@ sensor:
       - visibility
 
   - platform: plex
-    host: baggins.segulja.com
-    name: Living Room Plex
+    host: 172.16.20.4
+    name: Plex Media Server
     username: michael@segulja.com
     password: v@NNifer1
 
   - platform: template
     sensors:
-      living_room:
-        value_template: '{{ states.remote.living_room.attributes.current_activity }}'
+      media_room:
+        value_template: '{{ states.remote.media_room.attributes.current_activity }}'
 
 ## DEVICE TRACKERS ##
 device_tracker:
@@ -98,11 +98,6 @@ device_tracker:
     home_interval: 5
 
 ### MEDIA PLAYERS ###
-media_player:
-  - platform: plex
-    show_all_controls: true
-    scan_interval: 5
-
 media_player tv-mediaroom:
   - platform: webostv
     name: TV - Media Room
@@ -171,21 +166,21 @@ notify:
 ### REMOTES ###
 remote:
   - platform: harmony
-    name: Living Room
-    activity: Watch DirecTV
+    name: Media Room
+    activity: Watch Plex
 
 ### SWITCHES ###
 switch:
   - platform: template
     switches:
       tv:
-        value_template: "{% if is_state('remote.living_room', 'on') %}on{% else %}off{% endif %}"
+        value_template: "{% if is_state('remote.media_room', 'on') %}on{% else %}off{% endif %}"
         turn_on:
           service: remote.turn_on
-          entity_id: remote.living_room
+          entity_id: remote.media_room
         turn_off:
           service: remote.turn_off
-          entity_id: remote.living_room
+          entity_id: remote.media_room
 
 ### SCENES ###
 scene:
