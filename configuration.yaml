@@ -54,6 +54,11 @@ camera musicmbath:
     name: Music - Master Bathroom
     still_image_url: http://172.16.20.4:9000/music/current/cover.jpg?player=music-mbath
 
+camera plexmediaroom:
+  - platform: generic
+    name: Plex - Media Room
+    still_image_url: https://segulja.duckdns.org/api/media_player_proxy/media_player.tv__media_room?token=51dbb2c76b670891baadbd1b2676b22328fc9e2cbaac922f8ea09d5b8922e86f&cache=ad042cbaae67165d&api_password=f3rT3455
+
 ## SENSORS ##
 sensor:
   - platform: darksky
@@ -317,6 +322,12 @@ zone:
   - name: Aimee's House
     latitude: 30.049417
     longitude: -95.457141
+    radius: 100
+    icon: mdi:home-map-marker
+
+  - name: Alyssa's House
+    latitude: 30.078723
+    longitude: -95.522530
     radius: 100
     icon: mdi:home-map-marker
 

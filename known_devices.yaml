@@ -96,3 +96,12 @@ b8bbafe5b973:
   picture:
   track: false
   vendor: unknown
+
+c03896ee572d:
+  hide_if_away: false
+  icon:
+  mac: C0:38:96:EE:57:2D
+  name: c03896ee572d
+  picture:
+  track: false
+  vendor: unknown
