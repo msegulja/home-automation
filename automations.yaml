@@ -241,6 +241,9 @@
   - data:
       entity_id: media_player.musicoffice
     service: media_player.media_play
+  - data:
+      entity_id: switch.office_scentsy_switch
+    service: switch.turn_on
   alias: 'Arrive :: Home - Michael'
   condition: []
   id: '1510887293480'

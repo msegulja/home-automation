@@ -46,17 +46,17 @@ ios:
 ### CAMERAS ###
 camera musicoffice:
   - platform: generic
-    name: Music - Office
+    name: Camera - Music Office
     still_image_url: http://172.16.20.4:9000/music/current/cover.jpg?player=music-office
 
 camera musicmbath:
   - platform: generic
-    name: Music - Master Bathroom
+    name: Camera - Music Master Bathroom
     still_image_url: http://172.16.20.4:9000/music/current/cover.jpg?player=music-mbath
 
 camera plexmediaroom:
   - platform: generic
-    name: Plex - Media Room
+    name: Camera - Plex Media Room
     still_image_url: https://segulja.duckdns.org/api/media_player_proxy/media_player.tv__media_room?token=51dbb2c76b670891baadbd1b2676b22328fc9e2cbaac922f8ea09d5b8922e86f&cache=ad042cbaae67165d&api_password=f3rT3455
 
 ## SENSORS ##
@@ -135,6 +135,13 @@ media_player tv-livingroom:
     customize:
       sources:
         - hdmi1
+
+media_player plex-mediaroom:
+  - platform: plex
+    entity_namespace: 'plex'
+    include_non_clients: true
+    scan_interval: 5
+    show_all_controls: true
 
 ## INPUT BOOLEANS
 input_select:
