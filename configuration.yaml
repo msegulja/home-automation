@@ -200,18 +200,18 @@ scene:
     entities:
       light.living_room_lamp_l_level:
         state: on
-        transition: 30
         brightness_pct: 100
       light.living_room_lamp_r_level:
         state: on
-        transition: 60
         brightness_pct: 100
   - name: livingrm_lighting_off
     entities:
       light.living_room_lamp_l_level:
         state: off
+        transition: 60
       light.living_room_lamp_r_level:
         state: off
+        transition: 120
   - name: bedtime
     entities:
       input_select.house_mode:
@@ -228,13 +228,15 @@ scene:
         state: off
   - name: wakeup
     entities:
-      light.living_room_lamp_l:
+      light.living_room_lamp_l_level:
         state: on
         brightness_pct: 30
       light.office_light_level:
         state: on
-        brightness_pct: 50
+        brightness_pct: 100
       media_player.musicoffice:
+        state: on
+      media_player.musicmbath:
         state: on
 
 ### SCRIPTS ###
