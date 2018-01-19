@@ -91,7 +91,10 @@
     data:
       message: Michael left home
     service: notify.ios_phonemichael
-  alias: 'Leave Home :: Michael'
+  - data:
+      entity_id: group.office_lights
+    service: light.turn_off
+  alias: 'Leave :: Home - Michael'
   condition: []
   id: '1507860971051'
   trigger:
