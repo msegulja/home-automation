@@ -105,3 +105,12 @@ c03896ee572d:
   picture:
   track: false
   vendor: unknown
+
+michaels_ipad:
+  hide_if_away: false
+  icon:
+  mac:
+  name: michaels ipad
+  picture:
+  track: true
+  vendor:
