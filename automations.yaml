@@ -19,6 +19,9 @@
   - data:
       entity_id: switch.fang_light_night
     service: switch.turn_on
+  - data:
+      entity_id: switch.fang_light_day
+    service: light.turn_off
   alias: 'Time of Day :: Night'
   condition: []
   id: '1507071843278'
@@ -31,6 +34,12 @@
       entity_id: input_select.house_mode
       option: Morning
     service: input_select.select_option
+  - data:
+      entity_id: switch.fang_light_day
+    service: light.turn_on
+  - data:
+      entity_id: switch.fang_light_night
+    service: light.turn_off
   alias: 'Time of Day :: Morning'
   condition: []
   id: '1507072100005'

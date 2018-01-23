@@ -226,6 +226,8 @@ scene:
         state: off
       media_player.musicmbath:
         state: off
+      switch.fang_light_night:
+        state: on
   - name: wakeup
     entities:
       light.living_room_lamp_l_level:
