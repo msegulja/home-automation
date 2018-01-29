@@ -266,23 +266,33 @@ script:
   start_plex_movie:
     sequence:
       - service: remote.turn_on
-        entity_id: remote.living_room
+        entity_id: remote.media_room
         data:
-          activity: "Media Player"
+          activity: "Watch Plex"
       - service: scene.turn_on
-        entity_id: scene.livingrm_lighting_on
+        entity_id: scene.livingrm_lighting_off
       - service: switch.turn_off
         entity_id: switch.entry_way_lamp_switch
       - service: media_player.turn_off
         entity_id: media_player.musicoffice
       - service: media_player.turn_off
         entity_id: media_player.musicmbath
+      - service: input_select.select_option
+        entity_id: input_select.media_type
+        data:
+          option: "Movie"
   stop_plex_movie:
     sequence:
-      - service: scene.turn_off
-        entity_id: scene.livingrm_lighting_off
+      - service: remote.turn_off
+        entity_id: remote.media_room
+      - service: scene.turn_on
+        entity_id: scene.livingrm_lighting_on
       - service: switch.turn_on
         entity_id: switch.entry_way_lamp_switch
+      - service: input_select.select_option
+        entity_id: input_select.media_type
+        data:
+          option: "None"
 
 # Text to speech
 tts:
@@ -368,5 +378,5 @@ zwave:
 
 ## INCLUDES ##
 group: !include groups.yaml
-automation: !include automations.yaml
+automation: !include automations_temp.yaml
 # script: !include scripts.yaml

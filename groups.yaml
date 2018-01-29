@@ -43,6 +43,10 @@ media_room_view:
   name: Media Room
   entities:
     - media_player.tv__media_room
+    - switch.media_room_lamp_switch
+    - input_select.media_type
+    - switch.tv
+    - remote.media_room
 
 # Office
 office_view:
