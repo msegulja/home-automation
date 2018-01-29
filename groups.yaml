@@ -1,9 +1,14 @@
+#################################################
 ## VIEWS
+#################################################
+#Entry Way
 entry_way_view:
   view: yes
   name: Entry Way
   entities:
     - group.entry_way
+
+# Living Room
 living_room_view:
   view: yes
   name: Living Room
@@ -16,17 +21,30 @@ living_room_view:
     - input_boolean.plex_movie
     - switch.tv
     - media_player.medialvngrm
+
+# Master Bedroom
 master_bedroom_view:
   view: yes
   name: Master Bedroom
   entities:
     - group.master_bedroom
     - media_player.master_bedroom_tv
+
+# Master Bathroom
+master_bathroom_view:
+  view: yes
+  name: Master Bathroom
+  entities:
+    - group.master_bathroom
+
+# Media Room
 media_room_view:
   view: yes
   name: Media Room
   entities:
     - media_player.tv__media_room
+
+# Office
 office_view:
   view: yes
   name: Office
@@ -36,25 +54,36 @@ office_view:
     - sensor.office_motion_luminance
     - sensor.office_motion_relative_humidity
     - group.office_lights
+    - group.office_switches
     - media_player.aragorn
     - media_player.musicoffice
+
+# Outside
 outside_view:
   view: yes
   name: Outside
   entities:
     - group.outside
+
+# Occupency
 family_view:
   view: yes
   name: Family
   entities:
     - group.family
 
+#################################################
 ## GROUPS
+#################################################
+
+### ENTRY WAY ###
 entry_way:
   name: Entry Way
   entities:
     - switch.entry_way_lamp_switch
     - lock.front_door_lock_locked
+
+### LIVING ROOM ###
 living_room_lights:
   name: Living Room Lighting
   entities:
@@ -73,21 +102,38 @@ living_room_sensors:
   entities:
     - sensor.living_room
     - sensor.living_room_plex
+
+### MASTER BEDROOM ###
 master_bedroom:
   name: Master Bedroom
   entities:
     - remote.bedroom_apple_tv
+
+### MASTER BATHROOM ###
+master_bathroom:
+  name: Master Bathroom
+  entities:
+    - light.master_bathroom_level
+
+### OFFICE ###
 office_lights:
   name: Office Lights
   entities:
     - light.office_light_level
+office_switches:
+  name: Office Switches
+  entities:
     - switch.office_lamp_switch
     - switch.office_scentsy_switch
+
+### OUTSIDE ###
 outside:
   name: Outside
   entities:
     - light.front_porch_light_level
     - switch.back_porch_light_switch
+
+### OCCUPENCY ###
 family:
   name: Family
   entities:

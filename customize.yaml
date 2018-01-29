@@ -17,3 +17,9 @@ light.living_room_lamp_l_level:
   new_entity_id: light.living_room_lamp_l
 media_player.unnamed_device:
   friendly_name: Plex - Media Room
+light.office_light_level:
+  friendly_name: Office Light
+switch.office_lamp_switch:
+  friendly_name: Office Lamp
+switch.office_scentsy_switch:
+  friendly_name: Office Scentsy

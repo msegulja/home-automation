@@ -226,6 +226,8 @@ scene:
         state: off
       media_player.musicmbath:
         state: off
+      switch.fang_light_night:
+        state: on
   - name: wakeup
     entities:
       light.living_room_lamp_l_level:
@@ -238,6 +240,26 @@ scene:
         state: on
       media_player.musicmbath:
         state: on
+  - name: test normal
+    entities:
+      light.living_room_lamp_l_level:
+        state: on
+        transition: 2
+        brightness_pct: 60
+      light.living_room_lamp_r_level:
+        state: on
+        transition: 2
+        brightness_pct: 85
+  - name: test dim
+    entities:
+      light.living_room_lamp_l_level:
+        state: on
+        transition: 2
+        brightness_pct: 30
+      light.living_room_lamp_r_level:
+        state: on
+        transition: 2
+        brightness_pct: 55
 
 ### SCRIPTS ###
 script:
