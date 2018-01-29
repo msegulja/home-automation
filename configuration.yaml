@@ -378,5 +378,5 @@ zwave:
 
 ## INCLUDES ##
 group: !include groups.yaml
-automation: !include automations_temp.yaml
+automation: !include automations.yaml
 # script: !include scripts.yaml

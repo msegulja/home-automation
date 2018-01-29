@@ -385,8 +385,8 @@
 ## SCENES
 ##################################################
 
-# Watch a movie on Plex in the Media Room
-- alias: Movie :: Start -- Plex Media Room
+# Start a movie on Plex in the Media Room
+- alias: Movie :: Start -- PLEX Media Room
   id: '000023'
   action:
   - data:
@@ -395,13 +395,27 @@
   condition: []
   trigger:
   - entity_id: input_boolean.plex_movie
-    from: 'Off'
-    to: 'On'
+    from: 'off'
+    to: 'on'
+    platform: state
+
+# Stop a movie on Plex in the Media Room
+- alias: Movie :: Stop -- PLEX Media Room
+  id: '000024'
+  action:
+  - data:
+      entity_id: stop_plex_movie
+    service: script.turn_on
+  condition: []
+  trigger:
+  - entity_id: input_boolean.plex_movie
+    from: 'on'
+    to: 'off'
     platform: state
 
 # Plex Movie
 - alias: Plex Movie Pause
-  id: '000024'
+  id: '000025'
   action:
   - data:
       entity_id: switch.media_room_lamp_switch
