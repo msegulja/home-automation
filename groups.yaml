@@ -45,6 +45,7 @@ media_room_view:
     - media_player.tv__media_room
     - switch.media_room_lamp_switch
     - input_select.media_type
+    - input_boolean.plex_movie
     - switch.tv
     - remote.media_room
 
