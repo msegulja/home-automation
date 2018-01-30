@@ -283,7 +283,7 @@
   id: '000017'
   action:
   - data:
-      entity_id: switch.office_light_level
+      entity_id: light.office_light_level
     service: light.turn_on
   condition:
   - below: '5000'
@@ -299,7 +299,7 @@
   id: '000018'
   action:
   - data:
-      entity_id: switch.office_light_level
+      entity_id: light.office_light_level
     service: light.turn_off
   condition: []
   trigger:
