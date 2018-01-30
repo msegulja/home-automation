@@ -390,7 +390,7 @@
   id: '000023'
   action:
   - data:
-      entity_id: start_plex_movie
+      entity_id: script.start_plex_movie
     service: script.turn_on
   condition: []
   trigger:
@@ -404,7 +404,7 @@
   id: '000024'
   action:
   - data:
-      entity_id: stop_plex_movie
+      entity_id: script.stop_plex_movie
     service: script.turn_on
   condition: []
   trigger:
