@@ -81,6 +81,8 @@ sensor:
       - nearest_storm_distance
       - nearest_storm_bearing
       - visibility
+    units: us
+    update_interval: 00:5:00
 
   - platform: plex
     host: 172.16.20.4
