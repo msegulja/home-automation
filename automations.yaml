@@ -286,7 +286,7 @@
       entity_id: light.office_light_level
     service: light.turn_on
   condition:
-  - below: '5000'
+  - below: '50'
     condition: numeric_state
     entity_id: sensor.office_motion_luminance
   trigger:
