@@ -23,3 +23,5 @@ switch.office_lamp_switch:
   friendly_name: Office Lamp
 switch.office_scentsy_switch:
   friendly_name: Office Scentsy
+media_player.plex_unnamed_device:
+  friendly_name: Game Room Plex

@@ -114,3 +114,12 @@ michaels_ipad:
   picture:
   track: false
   vendor:
+
+d0817abcd5ee:
+  hide_if_away: false
+  icon:
+  mac: D0:81:7A:BC:D5:EE
+  name: d0817abcd5ee
+  picture:
+  track: true
+  vendor: Apple, Inc.
