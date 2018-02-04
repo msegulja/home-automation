@@ -422,7 +422,20 @@
     service: switch.turn_on
   condition: []
   trigger:
-  - entity_id: remote.media_room
-    from: Playing
+  - entity_id: media_player.plex_unnamed_device
+    from: playing
     platform: state
-    to: Paused
+    to: paused
+
+- alias: 'Plex Movie Play'
+  id: '000026'
+  action:
+  - data:
+      entity_id: switch.media_room_lamp_switch
+    service: switch.turn_off
+  condition: []
+  trigger:
+  - entity_id: media_player.plex_unnamed_device
+    from: paused
+    platform: state
+    to: playing
