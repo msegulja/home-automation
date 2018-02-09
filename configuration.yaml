@@ -157,6 +157,7 @@ input_select:
     - Evening
     - Night
     - Bedtime
+    - Vacation
   presence:
     name: Presence
     options:
@@ -175,7 +176,11 @@ input_boolean:
     name: Watch a movie on Plex
     initial: off
     icon: mdi:movie
-
+  vacation:
+    name: Vacation
+    initial: off
+    icon: mdi:airplane
+    
 ### NOTIFICATIONS ###
 notify:
 
