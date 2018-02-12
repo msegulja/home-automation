@@ -43,6 +43,9 @@ sun:
 map:
 ios:
 
+recorder:
+  purge_keep_days: 28
+
 ### CAMERAS ###
 camera musicoffice:
   - platform: generic
@@ -94,6 +97,9 @@ sensor:
     sensors:
       media_room:
         value_template: '{{ states.remote.media_room.attributes.current_activity }}'
+
+  - platform: cert_expiry
+    host: segulja.duckdns.org
 
 ## DEVICE TRACKERS ##
 device_tracker:
