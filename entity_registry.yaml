@@ -1,0 +1,99 @@
+sensor.phonemichael_battery_state:
+  platform: ios
+  unique_id: state_phone-michael
+sensor.michaels_ipad_battery_level:
+  platform: ios
+  unique_id: level_michaels_ipad
+sensor.michaels_ipad_battery_state:
+  platform: ios
+  unique_id: state_michaels_ipad
+sensor.phonemichael_battery_level:
+  platform: ios
+  unique_id: level_phone-michael
+switch.entry_way_lamp_switch:
+  platform: zwave
+  unique_id: 2-72057594076282880
+switch.media_room_lamp_switch:
+  platform: zwave
+  unique_id: 8-72057594176946176
+lock.front_door_lock_locked:
+  platform: zwave
+  unique_id: 9-72057594194722816
+switch.office_scentsy_switch:
+  platform: zwave
+  unique_id: 11-72057594227277824
+light.front_porch_light_level:
+  platform: zwave
+  unique_id: 14-72057594277625857
+sensor.living_room_motion_alarm_type:
+  platform: zwave
+  unique_id: 17-72057594329186305
+sensor.living_room_motion_alarm_level:
+  platform: zwave
+  unique_id: 17-72057594329186321
+sensor.living_room_motion_sourcenodeid:
+  platform: zwave
+  unique_id: 17-72057594329186337
+sensor.living_room_motion_burglar:
+  platform: zwave
+  unique_id: 17-72057594329186465
+binary_sensor.living_room_motion_sensor:
+  platform: zwave
+  unique_id: 17-72057594328121344
+binary_sensor.garage_overhead_door_sensor:
+  platform: zwave
+  unique_id: 19-72057594361675776
+sensor.garage_overhead_door_alarm_type:
+  platform: zwave
+  unique_id: 19-72057594362740737
+sensor.garage_overhead_door_alarm_level:
+  platform: zwave
+  unique_id: 19-72057594362740753
+switch.back_porch_light_switch:
+  platform: zwave
+  unique_id: 21-72057594395049984
+light.master_bathroom_light_level:
+  platform: zwave
+  unique_id: 25-72057594462175233
+light.living_room_lamp_l_level:
+  platform: zwave
+  unique_id: 28-72057594512506881
+binary_sensor.office_motion_sensor:
+  platform: zwave
+  unique_id: 35-72057594630111232
+sensor.office_motion_temperature:
+  platform: zwave
+  unique_id: 35-72057594630127634
+sensor.office_motion_luminance:
+  platform: zwave
+  unique_id: 35-72057594630127666
+sensor.office_motion_relative_humidity:
+  platform: zwave
+  unique_id: 35-72057594630127698
+light.living_room_lamp_r_level:
+  platform: zwave
+  unique_id: 37-72057594663501825
+light.office_light_level:
+  platform: zwave
+  unique_id: 41-72057594730610689
+switch.fang_light_switch:
+  platform: zwave
+  unique_id: 42-72057594747371520
+switch.fang_light_night:
+  platform: zwave
+  unique_id: 42-144115188785299456
+switch.fang_light_day:
+  platform: zwave
+  unique_id: 42-216172782823227392
+media_player.musicmbath:
+  platform: squeezebox
+  unique_id: 00:14:d1:6d:c8:79
+media_player.musicoffice:
+  platform: squeezebox
+  unique_id: b8:27:eb:2d:0e:89
+media_player.bedroom_apple_tv:
+  platform: apple_tv
+  unique_id: c0c0b340b51232cdfe57c839d569d57bca478a27e38f1a0b90d7667b3575ad5c
+remote.bedroom_apple_tv:
+  platform: apple_tv
+  unique_id: c0c0b340b51232cdfe57c839d569d57bca478a27e38f1a0b90d7667b3575ad5c
