@@ -97,3 +97,6 @@ media_player.bedroom_apple_tv:
 remote.bedroom_apple_tv:
   platform: apple_tv
   unique_id: c0c0b340b51232cdfe57c839d569d57bca478a27e38f1a0b90d7667b3575ad5c
+media_player.phonemichael:
+  platform: plex
+  unique_id: DAA5A175-75EC-494A-AF35-559000276263

@@ -123,3 +123,12 @@ d0817abcd5ee:
   picture:
   track: true
   vendor: Apple, Inc.
+
+001a4a160154:
+  hide_if_away: false
+  icon:
+  mac: 00:1A:4A:16:01:54
+  name: 001a4a160154
+  picture:
+  track: true
+  vendor: unknown
