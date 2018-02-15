@@ -100,3 +100,12 @@ remote.bedroom_apple_tv:
 media_player.phonemichael:
   platform: plex
   unique_id: DAA5A175-75EC-494A-AF35-559000276263
+media_player.plex_iphone:
+  platform: plex
+  unique_id: A15BE746-5D12-4716-A695-E2A9851D0564
+media_player.plex_unnamed_device:
+  platform: plex
+  unique_id: p82qbkakwpl23xrim8rqxkxy
+media_player.plex_aragorn:
+  platform: plex
+  unique_id: 9sj5ngquogouwj5ka95u0izf
