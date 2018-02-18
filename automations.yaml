@@ -295,7 +295,7 @@
     from: 'off'
     to: 'on'
 
-- alias: 'Lighting :: Office light -- OFF by MOTION'
+- alias: 'Lighting :: Office Light -- OFF by MOTION'
   id: '000018'
   action:
   - data:
