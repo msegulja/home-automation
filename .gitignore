@@ -7,4 +7,5 @@ OZW*
 *.xml
 .cloud
 *ios.conf*
-*DS_Store*
+*DS_Store
+.ios.conf
